@@ -885,7 +885,7 @@ Use it like this:
 
 #### git log
 
-Get human readable date from specific tag using the log via --format argument
+- Get human readable date from specific tag using the log via --format argument
 
 Running:
 
@@ -894,7 +894,7 @@ $ git log -1 --format=%ai 5.0.2.3
 2015-10-21 10:16:23 -0600
 ```
 
-Get human readable date from all tags using log and pretty format
+- Get human readable date from all tags using log and pretty format
 
 Running:
 
@@ -907,6 +907,40 @@ $ git log --tags --simplify-by-decoration --pretty="format:%ci %d"
 2016-02-01 18:35:23 -0700  (tag: 5.0.3.1)
 ```
 Consult the "PRETTY FORMATS" section of the git-log manpage for details of the format string if you want a different date formatting.
+
+#### git submodule
+
+- updating and pulling in submodules
+The git submodule update command actually tells Git that you want your submodules to each check out the commit already specified in the index of the superproject. If you want to update your submodules to the latest commit available from their remote, you will need to do this directly in the submodules.
+
+So in summary:
+```bash
+# get the submodule initially
+git submodule add ssh://bla submodule_dir
+git submodule init
+
+# time passes, submodule upstream is updated
+# and you now want to update
+
+# change to the submodule directory
+cd submodule_dir
+
+# checkout desired branch
+git checkout master
+
+# update
+git pull
+
+# get back to your project root
+cd ..
+
+# now the submodules are in the state you want, so
+git commit -am "Pulled down update to submodule_dir"
+```
+Or, if you're a busy person:
+```bash
+git submodule foreach git pull origin master
+```
 
 ### Merged Branches
 Running:
