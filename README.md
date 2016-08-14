@@ -67,6 +67,7 @@ A collection of cool hidden and not so hidden features of Git and GitHub. This c
   - [Git Grep](#git-grep)
   - [Git Commands](#git-commands)
     - [git log](#git-log)
+    - [git submodule](#git-submodule)
   - [Merged Branches](#merged-branches)
   - [Fixup and Autosquash](#fixup-and-autosquash)
   - [Web Server for Browsing Local Repositories](#web-server-for-browsing-local-repositories)
