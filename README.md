@@ -65,6 +65,8 @@ A collection of cool hidden and not so hidden features of Git and GitHub. This c
   - [Styled Git Log](#styled-git-log)
   - [Git Query](#git-query)
   - [Git Grep](#git-grep)
+  - [Git Commands](#git-commands)
+    - [git log](#git-log)
   - [Merged Branches](#merged-branches)
   - [Fixup and Autosquash](#fixup-and-autosquash)
   - [Web Server for Browsing Local Repositories](#web-server-for-browsing-local-repositories)
@@ -878,6 +880,33 @@ Use it like this:
 ```
 
 [*Read more about the Git `grep` command.*](http://git-scm.com/docs/git-grep)
+
+### Git Commands:
+
+#### git log
+
+Get human readable date from specific tag using the log via --format argument
+
+Running:
+
+```bash
+$ git log -1 --format=%ai 5.0.2.3
+2015-10-21 10:16:23 -0600
+```
+
+Get human readable date from all tags using log and pretty format
+
+Running:
+
+```bash
+$ git log --tags --simplify-by-decoration --pretty="format:%ci %d"
+2016-05-23 11:24:16 -0600  (HEAD -> master, tag: 5.0.3.4, origin/master, origin/HEAD)
+2016-02-11 16:46:32 -0700  (tag: 5.0.3.3)
+2016-02-11 16:10:27 -0700  (tag: 5.0.3.2)
+2016-02-11 16:00:56 -0700  (origin/more_email_translations_upates)
+2016-02-01 18:35:23 -0700  (tag: 5.0.3.1)
+```
+Consult the "PRETTY FORMATS" section of the git-log manpage for details of the format string if you want a different date formatting.
 
 ### Merged Branches
 Running:
