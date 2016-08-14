@@ -943,6 +943,16 @@ Or, if you're a busy person:
 git submodule foreach git pull origin master
 ```
 
+- Git 1.8.2 features a new option --remote that will enable exactly this behavior. Running
+```bash
+git submodule update --remote --merge
+```
+will fetch the latest changes from upstream in each submodule, merge them in, and check out the latest revision of the submodule. As the docs put it:
+```bash
+--remote
+```
+This option is only valid for the update command. Instead of using the superproject’s recorded SHA-1 to update the submodule, use the status of the submodule’s remote-tracking branch. This is equivalent to running `git pull` in each submodule, which is generally exactly what you want.
+
 ### Merged Branches
 Running:
 
